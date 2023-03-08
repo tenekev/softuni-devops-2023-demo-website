@@ -1,0 +1,20 @@
+version: "3.8"
+
+networks:
+  app-network:
+
+services:
+  web:
+    image: tenekev/php-nginx-full
+    ports:
+      - 8080:80
+    networks:
+      - app-network
+    depends_on:
+      - db
+  db:
+    image: tenekev/mariadb-full
+    networks:
+      - app-network
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345"
