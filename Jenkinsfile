@@ -25,18 +25,26 @@ pipeline
 
             }
         }
-        stage('Test availibility')
+        stage('Test WEB Availibility')
         {
             steps
             {
                 script 
                 {
-                    echo 'Wait 30 seconds';
-                    sh 'sleep 30';
+                    echo 'Wait 20 seconds';
+                    sh 'sleep 20';
                     
                     echo 'Testing reachability'
                     sh 'echo $(curl --write-out "%{http_code}" --silent --output /dev/null http://localhost:8080) | grep 200'
-                    
+                }
+            }
+        }
+        stage('Test DB Availibility')
+        {
+            steps
+            {
+                script 
+                {
                     echo 'Wait 10 seconds'
                     sh 'sleep 10'
 
