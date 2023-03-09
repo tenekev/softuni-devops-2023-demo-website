@@ -6,7 +6,7 @@ pipeline
     }
     environment 
     {
-        DOCKERHUB_CREDENTIALS=credentials('docker-hub')
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
     stages 
     {
@@ -14,7 +14,7 @@ pipeline
         {
             steps 
             {
-                git branch: 'main', url: 'http://192.168.99.102:3000/vagrant/diabetes'
+                git branch: 'main', url: 'http://192.168.99.102:3000/gitea_user/diabetes'
             }
         }
         stage('Build and Run')
