@@ -35,7 +35,7 @@ pipeline
                     sh 'sleep 20';
                     
                     echo 'Testing reachability'
-                    sh 'echo $(curl --write-out "%{http_code}" --silent --output /dev/null http://localhost:8081) | grep 200'
+                    sh 'echo $(curl --write-out "%{http_code}" --silent --output /dev/null http://localhost:8080) | grep 200'
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline
                     sh 'sleep 10'
 
                     echo 'Testing content'
-                    sh "curl --silent http://localhost:8081 | grep захар"
+                    sh "curl --silent http://localhost:8080 | grep захар"
                 }
             }
         }
